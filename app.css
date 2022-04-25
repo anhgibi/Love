@@ -27,9 +27,157 @@ h2{
 }
 
 p{
+
     text-align: justify;
-    font-size: larger;  
+    font-size: 16px;  
 }
+
+img{
+    width: 100%;
+}
+.heart-img{
+    position: relative;
+    width: 600px !important;
+    margin: 0 auto;
+}
+
+.heart {
+	width: 200px;
+	height: 200px;
+	top: 50%;
+	left: 50%;
+	z-index: 1;
+	display: block;
+	position: absolute;
+	transform: translate(-50%,-50%);
+	animation: heart 1s ease infinite
+}
+
+@keyframes heart {
+	96% {
+		transform: translate(-50%,-50%) scale(.8,.8)
+	}
+	100% {
+		transform: translate(-50%,-50%) scale(1,1)
+	}
+}
+
+.heart div {
+	background: #ff0000;
+	width: 71px;
+	height: 126px;
+	top: 40px;
+	display: block;
+	position: absolute;
+	border-radius: 50%
+	}
+
+.left {
+	left: 45px;
+	transform: rotate(330deg);
+}
+
+.right {
+	right: 45px;
+	transform: rotate(30deg);
+}
+
+button{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: none;
+    background-color: transparent;
+    width: 100px;
+    height: 100px;
+    color: #fff;
+}
+
+
+.Letters{
+    display: none ;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100vh;
+    background-color: rgba(78, 77, 77, 0.8);
+    z-index: 1000;
+    /* display: flex; */
+    justify-content: center;
+    align-items: center;
+}
+
+.Letters.active{
+    display: flex !important;
+}
+.content{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0 20px;
+    height: 90%;
+    padding: 0 20px;
+    background-color: #D6BD9F;
+    box-shadow: 8px 9px 20px 2px #2b2b2b;
+    animation: View 0.9s ease;
+}
+
+.content::before{
+    content: "";
+    position: absolute;
+}
+
+
+@keyframes View{
+    from{
+        /* width: 200px; */
+        height: 20px;
+        opacity: 0;
+    }
+    to{
+        width: 100%;
+        height: 100%;
+        opacity: 1;
+    }
+}
+
+
+
+.content-head{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 33px;
+}
+
+
+.watch{
+    text-align: center;
+}
+
+.wcl{
+    color: rgb(65, 176, 255);
+}
+
+ion-icon{
+    position: absolute;
+    top: 15px;
+    right: 3px;
+    font-size: 53px;
+    cursor: pointer;
+}
+
+
+
+
+
+
+
+
+
+
+
 
 @media only screen and (max-width: 540px) {
     body{

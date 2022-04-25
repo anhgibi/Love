@@ -9,6 +9,8 @@
     <link rel="shortcut icon" href="./img/220px-Heart_corazón.svg.png" type="image/x-icon">
     <link rel="stylesheet" href="./app.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </head>
 <body>
@@ -17,15 +19,92 @@
             <div class="row">
                 <div class="col">
                     <h2 class="d-flex justify-content-center">hey! Babi</h2>
+                    <p>em bấm xem ở dưới để xem thư nha ngay chổ trái tim á, thư này anh cài đặt chỉ trong 42h nó tự xoá.</p>
                 </div>
             </div>
 
+            <div id="watch"></div>
+
             <div class="row">
-                <div class="col ">
-                    <p>babi ơi, quà anh tặng cho em nè, tuy quà không có gì đặc sắc, cũng như không còn mới nữa, nhưng mà hy vọng em sẽ thích nó, album ảnh cho em coi nè, em giữ nó nha, còn có tờ tiền 2 đô đem may mắn cho em nè, anh sẽ mang may mắn cho bé, còn lại là bánh ăn để giải toả nổi sầu. Sau này có chuyện gì thì có anh đây, đừng buồn nữa nha, với lại anh không biết anh có làm tốt không nữa, sau này quen nhau a sẽ cố gắng </p>
+                <div class="heart-img">
+                    <img src="./img/imager_10112-removebg.png" alt="">
+
+                    <div class="heart">
+                        <div class="left"></div> 
+                        <div class="right"></div> 
+                        <button class="btn-view">xem</button>
+                    </div>
                 </div>
             </div>
+
+            
+               <div class="Letters">
+                    <div class="content">
+                        <div class="content-head">
+                            <p>Dear Thư Thư</p>
+                            <p>HCM, 25 April 2022</p>
+                        </div>
+                        <p>Em nè, quà của anh tặng em nè tuy chỉ có bánh với một tờ 2 đô la đã cũ tuy nhiên anh nghe nói nó mang lại may mắn, 
+                            còn có cái vật trang trí này để đẹp hoy nhưng giữ nó để em biết còn có anh, để có chuyện gì anh sẽ luôn bên em, mà còn một điều nữa
+                            là tuy nói ra hơi sớm cũng chưa đến thời điểm để nói nhưng mà trong thời gian biết em cũng không gọi là lâu, nhưng đã lở thích em rồi, từ lúc em đợi anh ngủ
+                            cũng bắt đầu thương em, anh nói hơi sến nhể, nhưng mờ thực sự là vậy, Anh chỉ mong thời gian sau này sẽ được chăm lo cho em. Thư này chỉ hoạt động 42h.  </p>
+                        <div class="content-footer">
+                            <p>You are my love</p>
+                            <img style="width: 200px;" src="./img/89d6675bc40605585c17-removebg.png" alt="">
+                            <p>Duong Nhat Anh</p>
+                            
+                        </div>
+                        <ion-icon class="ion-close" name="close-circle-outline"></ion-icon>
+                    </div>
+               </div>
+
+
         </div>
     </div>
+
+    <script>
+        const btnView =document.querySelector('.btn-view')
+        const Letters = document.querySelector('.Letters')
+        const ionClose = document.querySelector('.ion-close')
+
+
+        btnView.onclick = function(){
+            Letters.classList.add('active')
+        }
+
+        ionClose.onclick = function(){
+            Letters.classList.remove('active')
+        }
+
+
+
+        var countDownDate = new Date("Apr 28, 2022 06:00:00").getTime();
+ 
+ // cập nhập thời gian sau mỗi 1 giây
+        var x = setInterval(function() {
+
+        // Lấy thời gian hiện tại
+        var now = new Date().getTime();
+
+        // Lấy số thời gian chênh lệch
+        var distance = countDownDate - now;
+
+        // Tính toán số ngày, giờ, phút, giây từ thời gian chênh lệch
+        var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        // HIển thị chuỗi thời gian trong thẻ p
+        document.getElementById("watch").innerHTML = `<p class="watch"> còn lại ${days}  Ngày </p> <p class="watch wcl"> ${hours}:${minutes}:${seconds} </p>  `;
+
+        // Nếu thời gian kết thúc, hiển thị chuỗi thông báo
+        if (distance < 0) {
+            clearInterval(x);
+            document.getElementById("watch").innerHTML = `<p class="watch"> Thời gian kết thúc, hệ thống sẽ tự động xoá</p>`;
+        }
+        }, 1000);
+
+    </script>
 </body>
 </html>
